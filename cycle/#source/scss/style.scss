@@ -1,0 +1,623 @@
+//<МИКСИНЫ>===============================================================================================
+@import "mixins.scss";
+
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap');
+
+
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "Arial";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 1130;
+$md1: $mw+12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null.scss";
+
+body {
+	color: #000;
+	font-size: 14px;
+
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+
+	&.loaded {}
+}
+
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+	max-width: $mw + px;
+	padding: 0 15px;
+	margin: 0 auto;
+	width: 100%;
+
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
+}
+
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+//@import "datepicker.scss";
+//@import "fontawesome.scss";
+//@import "popover.min.scss";
+//@import "baguetteBox.scss";
+//@import "pagging.scss";
+//@import "icons.scss";
+@import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	@include flexbox;
+	flex-direction: column;
+}
+
+.main-screen {
+	flex: 1 0 100%;
+	position: relative;
+	// .main-screen__bg
+
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+
+	}
+}
+
+.content {}
+
+
+//====================================================================================================
+
+
+.generation {
+	padding: 117px 0 110px 0;
+	// .generation__row
+	background-color: #f7f7f7;
+
+	@media (max-width:767px) {
+		padding: 10px 0 28px 0;
+	}
+
+	&__row {}
+}
+
+.generation-content {
+	max-width: 1100px;
+	margin: 0 auto;
+	// background-color: #f7f7f7;
+}
+
+.generation-body {
+	text-align: center;
+	padding: 0 10px 0 10px;
+	// .generation-body__image
+
+	&__image {
+
+		margin: 0 0 34px 0;
+	}
+
+	// .generation-body__title
+
+	&__title {
+		font-family: 'Lato';
+		color: #353738;
+		margin: 0 0 35px 0;
+		line-height: 20px;
+		font-size: 18px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 3.6px;
+
+	}
+
+	// .generation-body__text
+
+	&__text {
+		font-family: 'Lato';
+		text-align: center;
+		color: #848789;
+		line-height: 34px;
+		font-size: 18px;
+
+		@media (max-width: 500px) {
+			font-size: 16px;
+		}
+	}
+}
+
+// ==================================================================================================================
+
+
+
+.brands {
+
+	// .brands__row
+
+	&__row {
+		@include flexbox;
+
+		@media (max-width: 1100px) {
+			flex-direction: column;
+		}
+	}
+
+	// .brands__column
+
+	&__column {
+		flex: 0 0 33.333%;
+
+		&-b {
+			flex: 0 0 66.667%;
+		}
+
+		@media (max-width: 1100px) {
+			flex: 0 0 100%
+		}
+
+	}
+
+	// .brands__image
+
+	&__image {
+		display: block;
+		padding: 0 0 37.51% 0;
+
+	}
+}
+
+.brands-item {
+	position: relative;
+	display: block;
+	height: 100%;
+	// .brands-item__logo
+
+	&__logo {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		z-index: 4;
+		@include flexbox;
+		@include anim(0.3s, 0s);
+		justify-content: center;
+		align-items: center;
+		z-index: 2;
+		background-color: rgba(113, 182, 155, 0.7);
+		opacity: 0;
+		visibility: hidden;
+
+
+	}
+
+	// .brands-item__image
+
+	&__image {
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+	}
+
+	@media (max-width: 1100px) {
+		height: auto;
+		padding: 0 0 70% 0;
+	}
+
+	&:hover {
+		.brands-item__logo {
+			opacity: 0.7;
+			visibility: visible;
+		}
+
+	}
+}
+
+.ibg {}
+
+.generation-body {
+	padding: 70px 67px 67px 65px;
+
+	@media (max-width: 1300px) {
+		padding: 45px 37px 37px 35px;
+	}
+
+	@media (max-width: 1100px) {
+		// padding: 22px 16px 16px 14px;
+	}
+
+	// .generation-body__image
+
+	&__image {}
+
+	// .generation-body__title
+
+	&__title {}
+
+	// .generation-body__text
+
+	&__text {
+		&-j {
+			text-align: justify;
+
+			&:after {
+				content: '';
+				display: block;
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 52px;
+				height: 3px;
+				margin: 0 auto;
+				margin-top: 40px;
+				background: #d7d7d7;
+
+				@media (max-width: 1300px) {
+					margin-top: 15px;
+				}
+			}
+		}
+
+	}
+}
+
+//====================================================================================================================
+.brands__column-1 {
+	@media (max-width: 1100px) {
+		&:first-child {
+			order: 2;
+		}
+
+		&:last-child {
+			order: 1;
+		}
+	}
+}
+
+//==================================================================================================================
+
+
+.slider {
+	background-color: #f7f7f7;
+	padding: 117px 0 60px 0;
+	// .slider__body
+
+	&__body {
+
+		text-align: center;
+	}
+
+	// .slider__item
+
+	&__item {}
+
+	// .slider__sosical
+
+	&__sosical {
+		margin: 0 0 30px 0;
+	}
+
+	// .slider__title
+
+	&__title {
+		font-family: 'Lato';
+		font-weight: 700;
+		font-size: 18px;
+		letter-spacing: 1.8px;
+		color: #353738;
+		margin: 0 0 20px 0;
+
+		&-35 {
+			font-family: "Lato Light";
+			color: #848789;
+			font-weight: 300;
+		}
+	}
+
+	// .slider__text
+
+	&__text {
+		font-family: 'Lato';
+		font-style: italic;
+		font-size: 24px;
+		color: #848789;
+		line-height: 34px;
+
+		@media (max-width:767px) {
+			font-size: 20px;
+		}
+	}
+}
+
+.container {}
+
+//==================================================================================================================
+.item {
+	height: 100%;
+	display: block;
+	position: relative;
+
+	// .item__logo
+	&__logo {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		@include flexbox();
+		flex-direction: column;
+		@include anim(0.3s, 0s);
+		justify-content: center;
+		align-items: center;
+		background-color: rgba(100, 194, 158, 0.5);
+		z-index: 2;
+		opacity: 0;
+		visibility: hidden;
+
+		span {
+			margin: 10px 0px 0px 0px;
+			font-size: 14px;
+			font-weight: 700;
+			letter-spacing: 2.8px;
+			text-transform: uppercase;
+			color: #fff;
+		}
+	}
+
+	// .item__image
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	&:hover {
+		.item__logo {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+//===================================================================================================================
+.shop {
+
+	// .shop__body
+
+	&__body {
+		@include flexbox;
+
+		@media (max-width:1100px) {
+			flex-wrap: wrap;
+
+		}
+	}
+
+	// .shop__column
+
+	&__column {
+		flex: 0 1 16.666%;
+		// .shop__column_b
+
+		&_b {
+			flex: 0 1 33.333%
+		}
+
+		@media (max-width:1100px) {
+			flex: 0 1 50%;
+
+			&:first-child {
+				flex: 1 1 100%;
+			}
+
+			&:last-child {
+				flex: 1 1 100%;
+			}
+
+		}
+	}
+
+	// .shop__block
+
+	&__block {}
+
+	// .shop__bottom
+
+	&__bottom {}
+}
+
+.block-shop {
+	height: 100%;
+	// .block-shop__row
+
+	&__row {
+		@include flexbox;
+	}
+
+	// .block-shop__column
+
+	&__column {
+		flex: 0 1 50%;
+	}
+
+	// .block-shop__item
+
+	&__item {
+		height: auto;
+		padding: 0 0 50% 0;
+
+		// .block-shop__item_l
+
+		&_l {
+			padding: 0 0 100% 0;
+		}
+
+		// .block-shop__item_b
+
+		&_b {
+			padding: 0 0 200.28% 0;
+		}
+	}
+}
+
+.shop {
+
+	// .shop__bottom
+
+	&__bottom {
+		background: #282f35;
+		padding: 75px 20px 75px 20px;
+	}
+
+	// .shop__bottom-text
+
+	&__bottom-text {
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		display: block;
+		max-width: 320px;
+		line-height: 24px;
+		margin: 0 auto;
+		padding: 20px 55px 20px 55px;
+		font-family: 'Lato';
+		color: #ffffff;
+		font-size: 14px;
+		font-weight: 700;
+		text-transform: uppercase;
+		text-align: center;
+		letter-spacing: 2.8px;
+
+		@media (max-width:400px) {
+			font-size: 13px;
+
+		}
+	}
+}
+
+//===================================================================================================================
+.subscribe {
+	padding: 110px 0 95px 0;
+	// .subscribe__body
+
+	&__body {
+		text-align: center;
+		padding: 0 10px 0 10px;
+
+	}
+
+	// .subscribe__icon
+
+	&__icon {}
+
+	// .subscribe__title
+
+	&__title {
+		color: #848789;
+		font-size: 24px;
+		font-style: italic;
+		line-height: 34px;
+		color: #848789;
+		margin: 35px 0 32px 0;
+	}
+
+	// .subscribe__btns
+
+	&__btns {}
+
+	// .subscribe__btns-input
+
+	&__btns-input {
+		border: 2px solid #d3d7d9;
+		width: 100%;
+		max-width: 400px;
+		display: inline-block;
+		padding: 20px 0 20px 28px;
+		margin: 0 8px 0 0;
+		color: #929292;
+		font-family: 'Lato';
+		font-size: 20px;
+		font-style: italic;
+		margin: 0 8px 25px 0;
+
+		&:focus {
+			border: 2px solid #64c29e;
+		}
+	}
+
+	// .subscribe__btns-btn
+
+	&__btns-btn {}
+}
+
+.btn {}
+
+
+
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================

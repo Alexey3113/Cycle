@@ -1,0 +1,116 @@
+
+//====================================================================================================
+.footer {
+   
+    background-color: #f7f7f7;
+    padding: 95px 10px 95px 10px;
+    @media (max-width: 1100px){
+        padding: 50px 10px 50px 10px;
+    }
+    @media (max-width: 900px){
+        padding: 50px 10px 20px 10px;
+
+    }
+    
+    &__text1{
+        color: #848789;
+        font-family: 'Lato';
+        font-size: 14px;
+        font-style: italic;
+        line-height: 17.87px;
+        margin: 0 9px 0 0;
+    }
+    // .footer__row
+
+    &__row {
+        @include flexbox;
+        @media (max-width: 900px){
+            flex-direction: column;
+            align-items: center;
+        }
+        
+       
+    }
+
+    // .footer__column
+
+    &__column {
+        flex: 0 1 33.333%;
+        @media (max-width: 900px){
+            flex: 1 1 100%;
+        }
+        
+        
+    }
+}
+.container {
+}
+.f-block {
+    @media (max-width: 900px){
+        text-align: center;
+        margin: 0 0 25px 0;
+    }
+
+    // .f-block__title
+
+    &__title {
+        font-family: "Lato - Bold";
+        font-size: 16px;
+        font-weight: 700;
+        color: #848789;
+        line-height: 17.87px;
+        @media (max-width: 900px){
+            margin: 0 0 10px 0;
+        }
+    }
+
+    // .f-block__text
+
+    &__text {
+        font-size: 14px;
+        font-family: "Lato - Italic";
+        font-style: italic;
+        color: #848789;
+        line-height: 17.87px;
+        @media (max-width: 900px){
+            margin: 0 0 10px 0;
+        }
+        
+    }
+
+    // .f-block__contanct
+
+    &__contanct {
+        font-size: 14px;
+        color: #848789;
+        font-family: "Lato - Italic";
+        font-style: italic;
+    }
+}
+.c-footer__column{
+    @include flexbox;
+    justify-content: center;
+    
+    @media (max-width: 900px){
+        justify-content: none;
+        margin: 0 0 25px 0;
+    }
+    & a{
+        display: inline-block;
+        margin: 0 15px 0 0;
+        
+        &:last-child{
+            margin: 0;
+        }
+    }
+}
+
+.l-footer__column{
+    @include flexbox;
+    justify-content: flex-end;
+    @media (max-width: 900px){
+        justify-content: none;
+    }
+}
+//====================================================================================================
+
